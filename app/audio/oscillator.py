@@ -13,5 +13,7 @@ class Oscillator:
             return self.amplitude * np.sign(np.sin(2 * np.pi * frequency * t))
         elif waveform == 'saw':
             return self.amplitude * (2 * (t * frequency - np.floor(1/2 + t * frequency)))
+        elif waveform == 'triangle':
+            return self.amplitude * (2 * np.abs(2 * (t * frequency - np.floor(1/2 + t * frequency))) - 1)
         else:
             raise ValueError("Unsupported waveform type")
