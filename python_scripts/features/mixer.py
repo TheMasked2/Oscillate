@@ -22,20 +22,19 @@ class Mixer:
         solo_tracks = [t for t in self.tracks if t.solo]
         tracks = solo_tracks if solo_tracks else self.tracks
 
-        waves = []
-        max_len = max(len(t.waveform) for t in tracks)
-        for track in tracks:
-            if track.mute:
-                continue
+        active = [t for t in tracks if not t.mute]
+        if not active:
+            return np.zeros(0, dtype=np.float32)
+
+        max_len = max(len(t.waveform) for t in active)
+        mixed = np.zeros(max_len, dtype=np.float32)
+
+        for track in active:
             wave = track.waveform * track.volume
             if len(wave) < max_len:
                 wave = np.pad(wave, (0, max_len - len(wave)), mode="constant")
-            waves.append(wave)
+            mixed += wave
 
-        if not waves:
-            return np.zeros(max_len, dtype=np.float32)
-
-        mixed = sum(waves)
         if normalize:
             peak = np.max(np.abs(mixed))
             if peak > 0:
