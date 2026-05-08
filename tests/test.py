@@ -3,7 +3,8 @@ from app.audio.data_loader import MusicData
 from app.audio.oscillator import Oscillator
 from app.engine.chord_builder import ChordBuilder
 from app.engine.melody_builder import MelodyBuilder
-from app.audio.mixer import Mixer, Track
+from app.audio.mixer import Mixer
+from app.core.track import Track
 from app.playback.player import AudioPlayer
 
 music_data = MusicData()
