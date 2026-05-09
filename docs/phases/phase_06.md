@@ -1,3 +1,5 @@
+# Phase 6 - Audio Visualizer System
+
 ## Goal
 
 Create reactive visuals tied to rendered music.

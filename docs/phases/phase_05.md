@@ -1,5 +1,6 @@
-## Goal
+# Phase 5 — Instrument & Effect System
 
+## Goal
 Turn the synth into an extensible sound engine.
 
 ---
@@ -7,23 +8,21 @@ Turn the synth into an extensible sound engine.
 # Features
 
 ## Instruments
-
-* pads
-* leads
-* basses
-* strings
-* piano-ish plucks
-* chiptune synths
+- pads
+- leads
+- basses
+- strings
+- piano-ish plucks
+- chiptune synths
 
 ## Effects
-
-* reverb
-* delay
-* chorus
-* detune
-* distortion
-* lowpass/highpass
-* stereo widening
+- reverb
+- delay
+- chorus
+- detune
+- distortion
+- lowpass/highpass
+- stereo widening
 
 ---
 
@@ -41,11 +40,10 @@ Track
 # Learning Goals
 
 By the end of this phase you should understand:
-
-* modular audio processing
-* effect pipelines
-* synthesis layering
-* sound design fundamentals
+- modular audio processing
+- effect pipelines
+- synthesis layering
+- sound design fundamentals
 
 ---
 
@@ -60,9 +58,8 @@ A modular synth/effects workflow.
 ## Chorus
 
 Research:
-
-* delayed detuned copies
-* modulation delay
+- delayed detuned copies
+- modulation delay
 
 ---
 

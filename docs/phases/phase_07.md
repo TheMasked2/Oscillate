@@ -1,3 +1,5 @@
+# Phase 7 - Modular Node Graph System
+
 ## Goal
 
 Create a hybrid DAW + modular synthesis workflow.

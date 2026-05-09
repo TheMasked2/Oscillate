@@ -1,5 +1,6 @@
-## Goal
+# Phase 9 — Real-Time Systems (Later)
 
+## Goal
 Move toward live playback architecture.
 
 THIS SHOULD NOT HAPPEN EARLY.
@@ -8,21 +9,21 @@ THIS SHOULD NOT HAPPEN EARLY.
 
 # Features
 
-* streaming audio
-* callback systems
-* low-latency playback
-* real-time automation
-* live parameter changes
+- streaming audio
+- callback systems
+- low-latency playback
+- real-time automation
+- live parameter changes
 
 ---
 
 # Important Concepts To Research
 
-* audio buffers
-* threading
-* synchronization
-* latency
-* audio callbacks
+- audio buffers
+- threading
+- synchronization
+- latency
+- audio callbacks
 
 ---
 
@@ -31,12 +32,11 @@ THIS SHOULD NOT HAPPEN EARLY.
 ## AI Integration
 
 Possible future features:
-
-* melody generation
-* harmony suggestions
-* procedural visuals
-* auto-layering
-* sound design assistance
+- melody generation
+- harmony suggestions
+- procedural visuals
+- auto-layering
+- sound design assistance
 
 ---
 
