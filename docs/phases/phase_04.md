@@ -1,5 +1,6 @@
-## Goal
+# Phase 4 — Project Save/Load System
 
+## Goal
 Make the DAW persistent.
 
 This phase is more important than it sounds.
@@ -27,22 +28,21 @@ Example:
 
 # Features
 
-* save project
-* load project
-* autosave later
-* project metadata
-* versioning later
+- save project
+- load project
+- autosave later
+- project metadata
+- versioning later
 
 ---
 
 # Learning Goals
 
 By the end of this phase you should understand:
-
-* serialization
-* project persistence
-* state management
-* version compatibility
+- serialization
+- project persistence
+- state management
+- version compatibility
 
 ---
 
@@ -57,9 +57,8 @@ Load/save editable music projects.
 ## Serialization
 
 Research:
-
-* JSON schemas
-* object serialization
-* save-state architecture
+- JSON schemas
+- object serialization
+- save-state architecture
 
 ---

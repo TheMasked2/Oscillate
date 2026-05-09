@@ -1,61 +1,109 @@
+# Phase 1 — Stabilize Core Audio Engine
+
+# Phase 1 Execution Plan
+
 ## Goal
 
-Turn the current synth prototype into a clean foundation.
+Turn the current synth prototype into a stable and reusable audio foundation.
 
-## Main Focus
+This phase is NOT about perfection.
 
-* note rendering
-* timing consistency
-* stereo support
-* effects foundation
-* clean architecture
-
-## Features
-
-* ADSR cleanup
-* detune
-* stereo rendering
-* lowpass filters
-* simple reverb
-* effect chains
-* better mixer
-
-## Learning Goals
-
-By the end of this phase you should understand:
-
-* digital audio basics
-* envelopes
-* oscillators
-* waveform layering
-* stereo audio
-* simple DSP
-* audio mixing
-
-## Deliverable
-
-A synth engine capable of rendering decent-sounding ambient/chiptune music.
+It is about:
+- consistency
+- structure
+- reusable audio generation
+- understanding synthesis fundamentals
 
 ---
 
-# Recommended Files
+# Recommended Development Order
 
-```text
-app/audio/
-    oscillator.py
-    envelope.py
-    filters.py
-    effects.py
-    mixer.py
+## Step 1 — Clean Oscillator Interface
+
+### Goal
+
+Create a reusable oscillator API.
+
+---
+
+### Example
+
+```python
+oscillator.generate(
+    frequency=440,
+    duration=1.0,
+    waveform="sine"
+)
 ```
 
 ---
 
-# Important Concepts To Research
+### Success Criteria
 
-## Detune
+You can:
+- generate sine waves
+- generate square waves
+- generate saw waves
+- generate triangle waves
+- switch waveforms cleanly
 
-Example:
+---
+
+### Files
+
+```text
+app/audio/oscillator.py
+```
+
+---
+
+## Step 2 — Stabilize ADSR Envelopes
+
+### Goal
+
+Apply ADSR consistently to all generated notes.
+
+---
+
+### Important Concept
+
+Release should exist INSIDE total note duration.
+
+NOT:
+
+```text
+wave + extra release tail
+```
+
+---
+
+### Success Criteria
+
+You can:
+- hear attack clearly
+- hear release clearly
+- avoid clicks/pops
+- apply ADSR to every waveform
+
+---
+
+### Files
+
+```text
+app/audio/envelope.py
+```
+
+---
+
+## Step 3 — Add Detune
+
+### Goal
+
+Layer multiple slightly detuned oscillators.
+
+---
+
+### Example
 
 ```python
 wave1 = osc(freq * 0.995)
@@ -63,46 +111,144 @@ wave2 = osc(freq)
 wave3 = osc(freq * 1.005)
 ```
 
-Creates:
+---
 
-* width
-* warmth
-* movement
+### Success Criteria
+
+The synth sounds:
+- wider
+- warmer
+- more alive
 
 ---
 
-## Stereo Rendering
+## Step 4 — Add Stereo Rendering
 
-Example:
+### Goal
+
+Convert mono rendering into stereo rendering.
+
+---
+
+### Example
 
 ```python
-left = wave
-right = np.roll(wave, 100)
+stereo = np.column_stack([left, right])
 ```
 
-Creates:
+---
 
-* space
-* immersion
+### Success Criteria
+
+You can:
+- pan sounds
+- create width
+- hear stereo movement
 
 ---
 
-## Lowpass Filters
+## Step 5 — Add Basic Effects
 
-Research:
+### Goal
 
-* one-pole filters
-* butterworth filters
-* cutoff frequency
+Create reusable effect processors.
 
 ---
 
-## Reverb
+### First Effects
 
-Research:
+Implement ONLY:
+- delay
+- reverb
+- lowpass filter
 
-* delay lines
-* feedback
-* convolution reverb (later)
+Ignore everything else initially.
+
+---
+
+### Suggested Interface
+
+```python
+processed = effect.process(audio)
+```
+
+---
+
+### Success Criteria
+
+You can:
+- chain effects
+- apply multiple effects
+- hear clear differences
+
+---
+
+## Step 6 — Create a Basic Mixer
+
+### Goal
+
+Mix multiple rendered audio signals together.
+
+---
+
+### Example
+
+```python
+final = track1 + track2
+```
+
+---
+
+### Success Criteria
+
+You can:
+- combine layers
+- avoid clipping
+- normalize output
+
+---
+
+## Step 7 — Render a Small Demo Track
+
+### Goal
+
+Create your first:
+
+```text
+small complete musical render
+```
+
+---
+
+### Requirements
+
+Use:
+- at least 2 layers
+- ADSR
+- detune
+- stereo
+- one effect
+
+---
+
+### Final Deliverable
+
+A decent sounding rendered ambient/chiptune track.
+
+---
+
+# Recommended Stopping Point
+
+STOP Phase 1 when:
+- rendering works reliably
+- audio sounds reasonably good
+- the synth is reusable
+
+DO NOT:
+- chase realism
+- optimize heavily
+- build 40 effects
+
+Move on.
 
 ---

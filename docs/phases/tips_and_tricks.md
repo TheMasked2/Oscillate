@@ -1,211 +1,3 @@
-# Oscillate — Complete Development Roadmap
-
-> A long-term roadmap and architecture guide for building a visually expressive modular music creation environment.
->
-> This document is written for:
->
-> * future-you
-> * current-you
-> * contributors
-> * learning-by-building
->
-> The goal is NOT to compete with professional DAWs.
->
-> The goal IS:
->
-> * understanding audio systems
-> * learning synthesis
-> * building your own ecosystem
-> * creating expressive visuals
-> * creating a functional self-made DAW
->
-> Philosophy:
->
-> ```text
-> Build cool things that teach you things.
-> ```
-
----
-
-# Core Vision
-
-Oscillate is NOT:
-
-* a clone of FL Studio
-* a clone of Ableton
-* an industry-focused production suite
-
-Oscillate IS:
-
-* a personal DAW
-* a visual music creation environment
-* a modular synth playground
-* a procedural experimentation platform
-* a long-term systems project
-
-The project should prioritize:
-
-1. interaction
-2. visualization
-3. modularity
-4. experimentation
-5. sound quality
-6. realism
-
----
-
-
-
-# OVERALL DEVELOPMENT TIMELINE
-
-# Phase 1 — Stabilize Core Audio Engine
-
-
-# Phase 2 — Event-Based Sequencing
-
-
-# Phase 3 — Piano Roll GUI
-
-
-
-# Phase 4 — Project Save/Load System
-
-
-# Phase 5 — Instrument & Effect System
-
-
-# Phase 6 — Audio Visualizer System
-
-
-# Phase 7 — Modular Node Graph System
-
-
-
-# Phase 8 — Procedural & Scripting Systems
-
-
-
-# Phase 9 — Real-Time Systems (Later)
-
-
-# Suggested Learning Resources
-
-# GUI
-
-## PyQt6
-
-Research:
-
-* signals/slots
-* QGraphicsScene
-* custom widgets
-* layouts
-
----
-
-# DSP
-
-## Books
-
-* Think DSP
-* The Scientist and Engineer's Guide to DSP
-
-## Topics
-
-* filtering
-* FFT
-* convolution
-* modulation
-
----
-
-# Music Theory
-
-Focus ONLY on:
-
-* intervals
-* chord construction
-* chord progressions
-* rhythm
-
-You do NOT need deep theory early.
-
----
-
-# MOST IMPORTANT PROJECT ADVICE
-
-## DO NOT CHASE INDUSTRY STANDARDS
-
-Your goal is:
-
-```text
-self-owned expressive software
-```
-
-not:
-
-```text
-professional commercial DAW
-```
-
-That distinction matters enormously.
-
----
-
-# Your First Major Milestones
-
-## Milestone 1
-
-```text
-Render decent synth audio.
-```
-
-(already partially complete)
-
----
-
-## Milestone 2
-
-```text
-Build event-based sequencing.
-```
-
----
-
-## Milestone 3
-
-```text
-Create a piano roll GUI.
-```
-
-THIS is the first truly massive milestone.
-
----
-
-## Milestone 4
-
-```text
-Save/load editable projects.
-```
-
----
-
-## Milestone 5
-
-```text
-Render a complete song with visuals.
-```
-
-THIS is likely your:
-
-```text
-holy shit i built this
-```
-
-moment.
-
----
-
 # Phase 2 Detailed Design — Event System Architecture
 
 ## Why This Phase Matters
@@ -222,20 +14,18 @@ melody = [
 ```
 
 This works for:
-
-* experiments
-* small demos
-* testing synthesis
+- experiments
+- small demos
+- testing synthesis
 
 But it breaks down immediately when you need:
-
-* overlapping notes
-* piano rolls
-* looping
-* quantization
-* layered instruments
-* automation
-* project editing
+- overlapping notes
+- piano rolls
+- looping
+- quantization
+- layered instruments
+- automation
+- project editing
 
 This phase converts the engine into a REAL sequencing system.
 
@@ -287,10 +77,9 @@ class NoteEvent:
 A clip is a container of note events.
 
 Examples:
-
-* drum loop
-* melody phrase
-* chord section
+- drum loop
+- melody phrase
+- chord section
 
 ```python
 class Clip:
@@ -304,10 +93,9 @@ class Clip:
 ## Track
 
 Tracks contain:
-
-* clips
-* instruments
-* effects
+- clips
+- instruments
+- effects
 
 ```python
 class Track:
@@ -352,11 +140,10 @@ seconds
 internally.
 
 Reason:
-
-* music is beat-based
-* BPM changes become possible
-* quantization becomes easier
-* piano rolls become simpler
+- music is beat-based
+- BPM changes become possible
+- quantization becomes easier
+- piano rolls become simpler
 
 ---
 
@@ -451,18 +238,18 @@ This is the core idea behind most DAWs.
 
 ## MUST HAVE
 
-* overlapping notes
-* beat-based timing
-* looping
-* velocity
-* multiple tracks
+- overlapping notes
+- beat-based timing
+- looping
+- velocity
+- multiple tracks
 
 ## DO LATER
 
-* automation
-* tempo changes
-* swing/groove
-* MIDI import/export
+- automation
+- tempo changes
+- swing/groove
+- MIDI import/export
 
 ---
 
@@ -482,13 +269,12 @@ app/sequencing/
 # Suggested Learning Checkpoint
 
 By the end of this phase you should understand:
-
-* sequencing
-* timeline rendering
-* audio scheduling
-* beat-based timing
-* overlapping synthesis
-* project data models
+- sequencing
+- timeline rendering
+- audio scheduling
+- beat-based timing
+- overlapping synthesis
+- project data models
 
 ---
 
@@ -622,21 +408,21 @@ MainWindow
 
 ## Essential
 
-* note drawing
-* note dragging
-* note resizing
-* play button
-* playback cursor
-* zooming
-* snapping
+- note drawing
+- note dragging
+- note resizing
+- play button
+- playback cursor
+- zooming
+- snapping
 
 ## Ignore Initially
 
-* fancy themes
-* animations
-* plugins
-* automation lanes
-* MIDI recording
+- fancy themes
+- animations
+- plugins
+- automation lanes
+- MIDI recording
 
 ---
 
@@ -724,13 +510,13 @@ Delete note.
 
 ## Later Add:
 
-* velocity editing
-* multiple clips
-* automation lanes
-* color coding
-* piano keyboard sidebar
-* ghost notes
-* fold-to-scale
+- velocity editing
+- multiple clips
+- automation lanes
+- color coding
+- piano keyboard sidebar
+- ghost notes
+- fold-to-scale
 
 ---
 
@@ -752,30 +538,27 @@ app/gui/
 ## PyQt6
 
 Research:
-
-* signals and slots
-* QGraphicsScene
-* QGraphicsItem
-* QPainter
-* event handling
+- signals and slots
+- QGraphicsScene
+- QGraphicsItem
+- QPainter
+- event handling
 
 ---
 
 ## DAW Piano Rolls
 
 Study:
-
-* FL Studio
-* Ableton
-* Reaper
-* LMMS
+- FL Studio
+- Ableton
+- Reaper
+- LMMS
 
 Pay attention to:
-
-* zooming
-* note editing
-* snapping
-* playback cursor behavior
+- zooming
+- note editing
+- snapping
+- playback cursor behavior
 
 ---
 
@@ -791,25 +574,3 @@ Draw notes on a piano roll
 THIS is the first major emotional milestone of the project.
 
 ---
-
-# Final Reminder
-
-The goal is not perfection.
-
-The goal is:
-
-* exploration
-* interaction
-* systems
-* creativity
-* understanding
-
-You are building:
-
-```text
-a visual music laboratory
-```
-
-And honestly?
-
-That is far more interesting than cloning a commercial DAW.
