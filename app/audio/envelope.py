@@ -38,3 +38,19 @@ class Envelope:
             envelope = envelope[:n]
 
         return audio_data * envelope
+    
+    def apply_fade(self, audio_data: np.ndarray, fade_time: float = 0.01) -> np.ndarray:
+        n = len(audio_data)
+        if n == 0 or fade_time <= 0.0:
+            return audio_data
+
+        fade_samples = min(int(round(fade_time * self.sample_rate)), n // 2)
+        if fade_samples <= 0:
+            return audio_data
+
+        fade_in = np.linspace(0.0, 1.0, fade_samples, dtype=np.float32)
+        fade_out = np.linspace(1.0, 0.0, fade_samples, dtype=np.float32)
+
+        audio_data[:fade_samples] *= fade_in
+        audio_data[-fade_samples:] *= fade_out
+        return audio_data

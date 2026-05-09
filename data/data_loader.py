@@ -18,7 +18,7 @@ class MusicData:
         return self.notes[note_name]
     
     def get_frequency(self, note_name):
-        return self.notes[note_name]['frequency']
+        return self.notes[note_name]
 
     def get_chord_intervals(self, chord_name):
         return self.chords[chord_name]
