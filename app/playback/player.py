@@ -1,9 +1,13 @@
 import sounddevice as sd
 
-class AudioPlayer:
-    def __init__(self, sample_rate=44100):
-        self.sample_rate = sample_rate
+from app.audio.mixer import Mixer
 
-    def play(self, audio_data, volume=1.0):
-        sd.play(audio_data * volume, self.sample_rate)
-        sd.wait()
+class Player:
+    def __init__(self, mixer: Mixer):
+        self.mixer = mixer
+
+    def play(self):
+        audio_buffer = self.mixer.mix()
+        if audio_buffer.size > 0:
+            sd.play(audio_buffer, samplerate=self.mixer.sample_rate)
+            sd.wait()

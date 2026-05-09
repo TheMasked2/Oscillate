@@ -1,9 +1,21 @@
-import numpy as np
-
 class Track:
-    def __init__(self, name, waveform, volume=1.0, mute=False, solo=False):
+    def __init__(self, name, instrument='sine', volume=1.0, mute=False, solo=False):
         self.name = name
-        self.waveform = np.asarray(waveform, dtype=np.float32)
-        self.volume = float(volume)
-        self.mute = bool(mute)
-        self.solo = bool(solo)
+        self.instrument = instrument
+        self.volume = volume
+        self.mute = mute
+        self.solo = solo
+        self.clips = []
+
+    def add_clip(self, clip):
+        self.clips.append(clip)
+
+    def remove_clip(self, clip):
+        if clip in self.clips:
+            self.clips.remove(clip)
+
+    def get_note_events(self):
+        events = []
+        for clip in self.clips:
+            events.extend(clip.get_absolute_note_events())
+        return events
