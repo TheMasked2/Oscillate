@@ -86,19 +86,6 @@ def build_demo_project():
 
     bass_track.add_clip(bass_clip)
 
-    pad_clip = Clip("Pad", start_time=4.0, duration=8.0)
-
-    pad_clip.add_note_event(
-        NoteEvent(
-            "C4",
-            velocity=100,
-            start_time=0.0,
-            duration=8.0,
-        )
-    )
-
-    pad_track.add_clip(pad_clip)
-
     return project
 
 
@@ -192,7 +179,7 @@ class MainWindow(QMainWindow):
         # position_label = QLabel("Pos: 1 | 1 | 1")
         # position_label.setStyleSheet("color: #c8d1e8;")
 
-        # top_bar.addWidget(bpm_label)
+        top_bar.addWidget(bpm_label)
         # top_bar.addWidget(position_label)
 
         top_bar.addStretch(1)
@@ -326,7 +313,7 @@ def main():
     project = build_demo_project()
 
     window = MainWindow(project)
-    window.resize(1600, 900)
+    window.resize(854, 480)
     window.show()
 
     sys.exit(app.exec())
