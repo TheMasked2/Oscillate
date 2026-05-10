@@ -24,6 +24,9 @@ class Clip:
             )
             for event in self.note_events
         ]
+    
+    def get_note_events(self):
+        return self.note_events
 
     @property
     def end_time(self):
